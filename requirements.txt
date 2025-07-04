@@ -1,4 +1,4 @@
-gradio==5.34.2
-openai
-python-dotenv
-requests 
+gradio>=5.33.1
+openai>=1.0.0
+python-dotenv>=1.0.0
+requests>=2.31.0

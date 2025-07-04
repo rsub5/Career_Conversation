@@ -100,14 +100,18 @@ class Me:
         linkedin_text = os.getenv('LINKEDIN_PROFILE_TEXT')
         if linkedin_text:
             self.linkedin = linkedin_text
+            print("LinkedIn profile loaded from environment variable")
         else:
+            print("Warning: LINKEDIN_PROFILE_TEXT environment variable not set")
             self.linkedin = "LinkedIn profile information not available. Please set LINKEDIN_PROFILE_TEXT environment variable."
         
         # Load summary from environment variable
         summary_text = os.getenv('PROFESSIONAL_SUMMARY')
         if summary_text:
             self.summary = summary_text
+            print("Professional summary loaded from environment variable")
         else:
+            print("Warning: PROFESSIONAL_SUMMARY environment variable not set")
             self.summary = "Professional summary not available. Please set PROFESSIONAL_SUMMARY environment variable."
 
 
@@ -147,7 +151,7 @@ class Me:
 if __name__ == "__main__":
     me = Me()
     
-    # Rollback: Use the original approach with gr.Chatbot for compatibility with Gradio 5.34.2
+    # Create the Gradio interface
     demo = gr.ChatInterface(
         me.chat,
         chatbot=gr.Chatbot(value=[{"role": "assistant", "content": welcome_message}], type="messages"),
@@ -166,4 +170,3 @@ if __name__ == "__main__":
     
     # Launch for local development or Hugging Face Spaces
     demo.launch(inbrowser=True)
-    
