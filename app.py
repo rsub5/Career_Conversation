@@ -14,9 +14,7 @@ if not openai_api_key:
     raise ValueError("OPENAI_API_KEY environment variable is required")
 
 welcome_message = os.getenv("WELCOME_MESSAGE", "Welcome message not set.")
-print(f"Loaded WELCOME_MESSAGE: {welcome_message}")
 system_prompt_text = os.getenv("SYSTEM_PROMPT_TEXT", "System prompt not set.")
-print(f"Loaded SYSTEM_PROMPT_TEXT: {system_prompt_text}")
 
 def push(text):
     try:
@@ -102,20 +100,14 @@ class Me:
         linkedin_text = os.getenv('LINKEDIN_PROFILE_TEXT')
         if linkedin_text:
             self.linkedin = linkedin_text
-            print("LinkedIn profile loaded from environment variable")
-            print(f"Loaded LINKEDIN_PROFILE_TEXT: {linkedin_text}")
         else:
-            print("Warning: LINKEDIN_PROFILE_TEXT environment variable not set")
             self.linkedin = "LinkedIn profile information not available. Please set LINKEDIN_PROFILE_TEXT environment variable."
         
         # Load summary from environment variable
         summary_text = os.getenv('PROFESSIONAL_SUMMARY')
         if summary_text:
             self.summary = summary_text
-            print("Professional summary loaded from environment variable")
-            print(f"Loaded PROFESSIONAL_SUMMARY: {summary_text}")
         else:
-            print("Warning: PROFESSIONAL_SUMMARY environment variable not set")
             self.summary = "Professional summary not available. Please set PROFESSIONAL_SUMMARY environment variable."
 
 
